@@ -45,7 +45,7 @@ noise:
   # The Noise private key is used to encrypt the traffic between headscale and
   # Tailscale clients when using the new Noise-based protocol. A missing key
   # will be automatically generated.
-  private_key_path: /var/lib/headscale/noise_private.key
+  private_key_path: ./private.key
 
 # List of IP prefixes to allocate tailaddresses from.
 # Each prefix consists of either an IPv4 or IPv6 address,
@@ -164,7 +164,7 @@ database:
 
   # SQLite config
   sqlite:
-    path: /var/lib/headscale/db.sqlite
+    path: ./db.sqlite
 
     # Enable WAL mode for SQLite. This is recommended for production environments.
     # https://www.sqlite.org/wal.html
