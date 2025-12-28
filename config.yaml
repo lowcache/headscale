@@ -45,7 +45,7 @@ noise:
   # The Noise private key is used to encrypt the traffic between headscale and
   # Tailscale clients when using the new Noise-based protocol. A missing key
   # will be automatically generated.
-  private_key_path: ./private.key
+  private_key_path: /tmp/noise_private.key
 
 # List of IP prefixes to allocate tailaddresses from.
 # Each prefix consists of either an IPv4 or IPv6 address,
@@ -99,7 +99,7 @@ derp:
 
     # Private key used to encrypt the traffic between headscale DERP and
     # Tailscale clients. A missing key will be automatically generated.
-    private_key_path: /var/lib/headscale/derp_server_private.key
+    private_key_path: /tmp/private.key
 
     # This flag can be used, so the DERP map entry for the embedded DERP server is not written automatically,
     # it enables the creation of your very own DERP map entry using a locally available file with the parameter DERP.paths
@@ -164,7 +164,7 @@ database:
 
   # SQLite config
   sqlite:
-    path: ./db.sqlite
+    path: /tmp/db.sqlite
 
     # Enable WAL mode for SQLite. This is recommended for production environments.
     # https://www.sqlite.org/wal.html
@@ -212,7 +212,7 @@ tls_letsencrypt_hostname: ""
 # Path to store certificates and metadata needed by
 # letsencrypt
 # For production:
-tls_letsencrypt_cache_dir: /var/lib/headscale/cache
+tls_letsencrypt_cache_dir: /tmp/headscale/cache
 
 # Type of ACME challenge to use, currently supported types:
 # HTTP-01 or TLS-ALPN-01
@@ -324,7 +324,7 @@ dns:
 
 # Unix socket used for the CLI to connect without authentication
 # Note: for production you will want to set this to something like:
-unix_socket: /var/run/headscale/headscale.sock
+unix_socket: /tmp/headscale/headscale.sock
 unix_socket_permission: "0770"
 
 # OpenID Connect
